@@ -1,0 +1,41 @@
+{
+    "name": "flave",
+    "displayName": "Flave",
+    "description": "Razor like view transpiler for Javascript",
+    "version": "0.0.2",
+    "publisher": "varubi",
+    "engines": {
+        "vscode": "^1.12.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "flave",
+                "aliases": [
+                    "Flave",
+                    "flave.js"
+                ],
+                "extensions": [
+                    ".flave"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "flave",
+                "scopeName": "source.flave",
+                "path": "./syntaxes/flave.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "flave",
+                "path": "./snippets/flave.json"
+            }
+        ]
+    }
+}

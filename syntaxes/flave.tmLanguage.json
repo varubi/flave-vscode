@@ -1,0 +1,249 @@
+{
+    "name": "flave",
+    "scopeName": "source.flave",
+    "fileTypes": [
+        "flave"
+    ],
+    "patterns": [
+        {
+            "name": "section.flave",
+            "begin": "(class)\\s+(([a-zA-Z_$][a-zA-Z_$\\d]+)|([^\r\n\\s\\{]+))[\r\n\\s]*(\\{)",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.flave"
+                },
+                "2": {
+                    "name": "name.flave"
+                },
+                "4": {
+                    "name": "illegal.invalid.identifier.flave"
+                },
+                "5": {
+                    "name": "embedded.punctuation.section.begin.flave"
+                }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "embedded.punctuation.end.section.flave"
+                }
+            },
+            "patterns": [
+                {
+                    "name": "embedded.source.js",
+                    "begin": "(function)\\s+(([a-zA-Z_$][a-zA-Z_$\\d]+)|([^\r\n\\s\\{]+))[\r\n\\s]*(\\{)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.flave"
+                        },
+                        "2": {
+                            "name": "name.flave"
+                        },
+                        "4": {
+                            "name": "illegal.invalid.identifier.flave"
+                        },
+                        "5": {
+                            "name": "embedded.punctuation.section.begin.flave"
+                        }
+                    },
+                    "end": "\\}",
+                    "endCaptures": {
+                        "0": {
+                            "name": "embedded.punctuation.end.section.flave"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#escape"
+                        },
+                        {
+                            "include": "source.js"
+                        }
+                    ]
+                },
+                {
+                    "name": "section.block.flave",
+                    "begin": "(view)\\s+(([a-zA-Z_$][a-zA-Z_$\\d]+)|([^\r\n\\s\\{]+))[\r\n\\s]*(\\{)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.flave"
+                        },
+                        "2": {
+                            "name": "name.flave"
+                        },
+                        "4": {
+                            "name": "illegal.invalid.identifier.flave"
+                        },
+                        "5": {
+                            "name": "embedded.punctuation.section.begin.flave"
+                        }
+                    },
+                    "end": "\\}",
+                    "endCaptures": {
+                        "0": {
+                            "name": "embedded.punctuation.end.section.flave"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#flaveblock"
+                        }
+                    ]
+                },
+                {
+                    "include": "#comments"
+                }
+            ]
+        },
+        {
+            "include": "#comments"
+        }
+    ],
+    "repository": {
+        "escape": {
+            "name": "constant.character.escape.flave",
+            "match": "\\\\."
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "match": "(\\/\\/)([^\\r\\n]+)",
+                    "captures": {
+                        "0": {
+                            "name": "js.comment.double-slash.flave"
+                        },
+                        "1": {
+                            "name": "js.punctuation.comment.definition.flave"
+                        }
+                    },
+                    "name": "js.comment.block.flave"
+                },
+                {
+                    "begin": "\\/\\*",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "js.punctuation.comment.definition.flave"
+                        }
+                    },
+                    "end": "\\*\\/",
+                    "endCaptures": {
+                        "0": {
+                            "name": "js.punctuation.comment.definition.flave"
+                        }
+                    }
+                }
+            ]
+        },
+        "flaveblock": {
+            "patterns": [
+                {
+                    "include": "#escape"
+                },
+                {
+                    "include": "#comments"
+                },
+                {
+                    "name": "embedded.source.js",
+                    "begin": "(@)(\\{)",
+                    "beginCaptures": {
+                        
+                        "1": {
+                            "name": "delimiter.flave"
+                        },
+                        "2": {
+                            "name": "embedded.punctuation.section.begin.flave"
+                        }
+                    },
+                    "end": "\\}",
+                    "endCaptures": {
+                        "0": {
+                            "name": "embedded.punctuation.section.end.flave"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#escape"
+                        },
+                        {
+                            "include": "source.js"
+                        }
+                    ]
+                },
+                {
+                    "name": "embedded.source.js",
+                    "begin": "(@)((?:if|elseif|while|for)\\s*)?(\\()",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "delimiter.flave"
+                        },
+                        "2": {
+                            "name": "keyword.flave"
+                        },
+                        "3": {
+                            "name": "embedded.punctuation.section.begin.flave"
+                        }
+                    },
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "embedded.punctuation.section.end.flave"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#escape"
+                        },
+                        {
+                            "include": "source.js"
+                        }
+                    ]
+                },
+                {
+                    "match": "(@)(else)\\s*",
+                    "captures": {
+                        "0": {
+                            "name": "section.begin.flave"
+                        },
+                        "1": {
+                            "name": "delimiter.flave"
+                        },
+                        "2": {
+                            "name": "keyword.flave"
+                        }
+                    }
+                },
+                {
+                    "match": "(@)([^\\s]*)\\s*",
+                    "captures": {
+                        "0": {
+                            "name": "illegal.invalid.identifier.flave"
+                        }
+                    }
+                },
+                {
+                    "name": "text.html.basic",
+                    "begin": "\\{",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "embedded.punctuation.section.begin.flave"
+                        }
+                    },
+                    "end": "\\}",
+                    "endCaptures": {
+                        "0": {
+                            "name": "embedded.punctuation.end.section.flave"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#flaveblock"
+                        }
+                    ]
+                },
+                {
+                    "include": "text.html.basic"
+                }
+            ]
+        }
+    }
+}
