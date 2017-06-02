@@ -7,10 +7,24 @@
     "engines": {
         "vscode": "^1.12.0"
     },
+    "activationEvents": [
+        "onLanguage:flave",
+        "onCommand:flave.compile"
+    ],
     "categories": [
         "Languages"
     ],
+    "main": "./src/main",
+    "dependencies": {
+        "flave": "^1.0.0"
+    },
     "contributes": {
+        "commands": [
+            {
+                "command": "flave.compile",
+                "title": "Compile FLAVE to JS"
+            }
+        ],
         "languages": [
             {
                 "id": "flave",
@@ -36,6 +50,23 @@
                 "language": "flave",
                 "path": "./snippets/flave.json"
             }
-        ]
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Flave configuration",
+            "properties": {
+                "flave.compile": {
+                    "type": "object",
+                    "description": "Configuration options for Flave extension.",
+                    "properties": {
+                        "compileOnSave": {
+                            "type": "boolean",
+                            "description": "Auto compile flave files on save.",
+                            "default": null
+                        }
+                    }
+                }
+            }
+        }
     }
 }

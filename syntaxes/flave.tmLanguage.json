@@ -146,7 +146,6 @@
                     "name": "embedded.source.js",
                     "begin": "(@)(\\{)",
                     "beginCaptures": {
-                        
                         "1": {
                             "name": "delimiter.flave"
                         },
