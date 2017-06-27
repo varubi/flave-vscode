@@ -30,70 +30,21 @@
             },
             "patterns": [
                 {
-                    "name": "embedded.source.js",
-                    "begin": "(function)\\s+(([a-zA-Z_$][a-zA-Z_$\\d]+)|([^\r\n\\s\\{]+))[\r\n\\s]*(\\{)",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "keyword.flave"
-                        },
-                        "2": {
-                            "name": "name.flave"
-                        },
-                        "4": {
-                            "name": "illegal.invalid.identifier.flave"
-                        },
-                        "5": {
-                            "name": "embedded.punctuation.section.begin.flave"
-                        }
-                    },
-                    "end": "\\}",
-                    "endCaptures": {
-                        "0": {
-                            "name": "embedded.punctuation.end.section.flave"
-                        }
-                    },
-                    "patterns": [
-                        {
-                            "include": "#escape"
-                        },
-                        {
-                            "include": "source.js"
-                        }
-                    ]
+                    "include": "#flaveview"
                 },
                 {
-                    "name": "section.block.flave",
-                    "begin": "(view)\\s+(([a-zA-Z_$][a-zA-Z_$\\d]+)|([^\r\n\\s\\{]+))[\r\n\\s]*(\\{)",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "keyword.flave"
-                        },
-                        "2": {
-                            "name": "name.flave"
-                        },
-                        "4": {
-                            "name": "illegal.invalid.identifier.flave"
-                        },
-                        "5": {
-                            "name": "embedded.punctuation.section.begin.flave"
-                        }
-                    },
-                    "end": "\\}",
-                    "endCaptures": {
-                        "0": {
-                            "name": "embedded.punctuation.end.section.flave"
-                        }
-                    },
-                    "patterns": [
-                        {
-                            "include": "#flaveblock"
-                        }
-                    ]
+                    "include": "#flavefunction"
                 },
                 {
                     "include": "#comments"
                 }
             ]
+        },
+        {
+            "include": "#flaveview"
+        },
+        {
+            "include": "#flavefunction"
         },
         {
             "include": "#comments"
@@ -131,6 +82,67 @@
                             "name": "js.punctuation.comment.definition.flave"
                         }
                     }
+                }
+            ]
+        },
+        "flavefunction": {
+            "name": "embedded.source.js",
+            "begin": "(function)\\s+(([a-zA-Z_$][a-zA-Z_$\\d]+)|([^\r\n\\s\\{]+))[\r\n\\s]*(\\{)",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.flave"
+                },
+                "2": {
+                    "name": "name.flave"
+                },
+                "4": {
+                    "name": "illegal.invalid.identifier.flave"
+                },
+                "5": {
+                    "name": "embedded.punctuation.section.begin.flave"
+                }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "embedded.punctuation.end.section.flave"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#escape"
+                },
+                {
+                    "include": "source.js"
+                }
+            ]
+        },
+        "flaveview": {
+            "name": "section.block.flave",
+            "begin": "(view)\\s+(([a-zA-Z_$][a-zA-Z_$\\d]+)|([^\r\n\\s\\{]+))[\r\n\\s]*(\\{)",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.flave"
+                },
+                "2": {
+                    "name": "name.flave"
+                },
+                "4": {
+                    "name": "illegal.invalid.identifier.flave"
+                },
+                "5": {
+                    "name": "embedded.punctuation.section.begin.flave"
+                }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "embedded.punctuation.end.section.flave"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#flaveblock"
                 }
             ]
         },

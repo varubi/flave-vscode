@@ -22,7 +22,7 @@ exports.activate = function (context) {
         }
     });
     const didSaveEvent = vscode.workspace.onDidSaveTextDocument((doc) => {
-        if (doc.fileName.endsWith(FLAVE_EXT)) {
+        if (doc.fileName.endsWith(FLAVE_EXT) && vscode.workspace.getConfiguration('flave').get('compileOnSave')) {
             vscode.commands.executeCommand(COMPILE_COMMAND, doc);
         }
     });
