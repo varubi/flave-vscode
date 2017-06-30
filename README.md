@@ -1,2 +1,2 @@
 # Flave Syntax Highlighting
-![ScreenShot](https://raw.githubusercontent.com/varubi/language-flave/master/media/sample.png?raw=true "ScreenShot")
+![ScreenShot](https://raw.githubusercontent.com/varubi/flave/master/sample/sample.png?raw=true "ScreenShot")
