@@ -2,7 +2,7 @@
     "name": "flave-vscode",
     "displayName": "Flave",
     "description": "Razor like view transpiler for Javascript",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "publisher": "varubi",
     "engines": {
         "vscode": "^1.12.0"
