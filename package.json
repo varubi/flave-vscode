@@ -1,5 +1,5 @@
 {
-    "name": "flave",
+    "name": "flave-vscode",
     "displayName": "Flave",
     "description": "Razor like view transpiler for Javascript",
     "version": "0.2.0",
@@ -16,7 +16,7 @@
     ],
     "main": "./src/main",
     "dependencies": {
-        "flave": "^1.0.0"
+        "flave": "^1.4.2"
     },
     "contributes": {
         "commands": [
@@ -59,6 +59,11 @@
                     "type": "boolean",
                     "description": "Auto compile flave files on save.",
                     "default": true
+                },
+                "flave.config": {
+                    "type": "object",
+                    "description": "Configuration Object to pass to transpiler. See https://github.com/varubi/flave for more info.",
+                    "default": {}
                 }
             }
         }

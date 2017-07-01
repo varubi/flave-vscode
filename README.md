@@ -1,2 +1,3 @@
-# Flave Syntax Highlighting
-![ScreenShot](https://raw.githubusercontent.com/varubi/language-flave/master/media/sample.png?raw=true "ScreenShot")
+# Flave Language Support
+#### Adds Syntax Highlighting and Auto Compile on Save
+![ScreenShot](https://raw.githubusercontent.com/varubi/flave/master/sample/sample.png?raw=true "ScreenShot")

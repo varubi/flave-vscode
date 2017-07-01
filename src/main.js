@@ -47,11 +47,8 @@ function transpile(document) {
     let dest = path.resolve(path.dirname(src), path.parse(src).name + '.js');
     fs.readFile(src, function (error, data) {
         if (!error)
-            fs.writeFile(dest, flave.transpile(data.toString(), {
-                newlines: true
-            }),
-                function () {
-
-                })
+            fs.writeFile(dest, flave.transpile(data.toString(), vscode.workspace.getConfiguration('flave').get('config')),
+                function () { }
+            )
     })
 }
